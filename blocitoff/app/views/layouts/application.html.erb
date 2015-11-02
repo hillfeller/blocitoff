@@ -4,9 +4,18 @@
   <title>Blocitoff</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %> 
+  <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div class="pull-right user-info">
+    <% if current_user %>
+    <%= image_tag User.avatar_url(current_user, 48), class: "gravatar" %>
+    <div class="pull-right">
+      <%= link_to current_user.name, user_path(current_user) %> <br/> 
+    </div>
+    <% end %>
+  </div>
   <div class="container">
 
     <% if user_signed_in? %>
