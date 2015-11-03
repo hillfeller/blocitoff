@@ -11,7 +11,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) << :name
   end
 
-  def self.default_url_options(options={})
-    options.merge({ :locale => I18n.locale })
-  end
+
 end
