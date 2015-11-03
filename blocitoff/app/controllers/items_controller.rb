@@ -1,5 +1,12 @@
 class ItemsController < ApplicationController
 
+  def index
+    @items = Item.all
+  end
+
+  def show
+    @item = Item.find(params[:id]) if params[:id].present?
+  end
 
   def create
     @item = current_user.items.new(item_params)
