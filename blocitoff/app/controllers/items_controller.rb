@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id]) if params[:id].present?
+
   end
 
   def create
@@ -17,6 +18,8 @@ class ItemsController < ApplicationController
       flash[:error] = "There was an error creating this item."
       render :new
     end
+
+
   end
 
   def destroy
@@ -27,7 +30,9 @@ class ItemsController < ApplicationController
       flash[:error] = "Item could not be deleted"
     end
     redirect_to root_path
+
   end
+
 
   private
 
