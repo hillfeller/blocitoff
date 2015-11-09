@@ -1,0 +1,10 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+      <%= item.name %>
+      | <%= link_to("", [current_user, item], method: :delete, class: 'glyphicon glyphicon-ok') if item.user == current_user %>
+      | <%= time_remaining(item) %>
+    </h4>
+
+  </div>
+</div>

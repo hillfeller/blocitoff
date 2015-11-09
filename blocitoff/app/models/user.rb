@@ -4,11 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
-  #has_many :emails
-  #delegate :confirmation_sent_at, :confirmed_at, :confirmation_token, to: :primary_email
+  has_many :items
 
-
-#   def primary_email
-#     emails.primary || (emails.first if new_record?)
-#   end
+  def self.avatar_url(user, size)
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
+  end
 end
