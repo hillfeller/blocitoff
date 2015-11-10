@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   root 'users#show'
 
+  resources :todos, only: [:new, :create, :show]
 
 
 end
